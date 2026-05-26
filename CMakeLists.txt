@@ -3,11 +3,12 @@ project(coreTLS)
 add_compile_options(
 	-nostdinc
 	-Wno-error=int-conversion
+	-Wno-incompatible-pointer-types
+	-Wno-error=incompatible-pointer-types
 )
 
 add_definitions(
 	-DCCCBC_RETURN_INT
-	-DCORECRYPTO_DONOT_USE_TRANSPARENT_UNION
 )
 
 include_directories(
