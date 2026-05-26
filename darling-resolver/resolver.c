@@ -176,7 +176,7 @@ static si_list_t *
 dr_addrinfo(si_mod_t *si, const void *node, const void *serv, uint32_t family, uint32_t socktype, uint32_t proto, uint32_t flags, const char *interface, uint32_t *err)
 {
 	bool resolveV4, resolveV6;
-	int servPort = 0;
+	uint16_t servPort = 0;
 	
 	if (err != NULL) *err = SI_STATUS_NO_ERROR;
 	
