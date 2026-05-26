@@ -401,7 +401,7 @@ ecdsa_verify_signature(hx509_context context,
     }
 
     ret = ECDSA_verify(-1, digest.data, digest.length,
-		       sig->data, sig->length, key);
+		       sig->data, sig->length, (ECDSA *)key);
     der_free_octet_string(&digest);
     EC_KEY_free(key);
     if (ret != 1) {
@@ -460,7 +460,7 @@ ecdsa_create_signature(hx509_context context,
     // a reference (SEP) because we can't physically access the key.
     // Also, ECDSA signatures are somewhat variable in length.
     // So we fake it.
-    sig->length = ECDSA_size(signer->private_key.ecdsa);
+    sig->length = ECDSA_size((ECDSA *)signer->private_key.ecdsa);
     sig->data = malloc(sig->length);
     if (sig->data == NULL) {
 	der_free_octet_string(&indata);
@@ -471,7 +471,7 @@ ecdsa_create_signature(hx509_context context,
 
     // Call sign
     ret = ECDSA_sign(-1, indata.data, indata.length,
-	     sig->data, &siglen, signer->private_key.ecdsa);
+	     sig->data, &siglen, (ECDSA *)signer->private_key.ecdsa);
 
     der_free_octet_string(&indata);
     if (ret != 1) {
