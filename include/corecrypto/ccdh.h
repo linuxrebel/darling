@@ -17,7 +17,7 @@ cc_aligned_struct(16) ccdh_gp;
 
 // Unions/structs
 
-#if CORECRYPTO_USE_TRANSPARENT_UNION
+#if 1 /* always use transparent union for Clang compatibility */
 typedef union {
     cczp_t  zp;
     ccdh_gp *gp;   
@@ -64,7 +64,7 @@ typedef struct ccdh_full_ctx {
     struct ccdh_ctx_header  hdr;
 } __attribute__((aligned(16))) ccdh_full_ctx;
 
-#if CORECRYPTO_USE_TRANSPARENT_UNION
+#if 1 /* always use transparent union for Clang compatibility */
 typedef union {
     ccdh_full_ctx *_full;
     struct ccdh_ctx_header *hdr;
@@ -87,7 +87,7 @@ typedef struct ccdh_pub_ctx {
     struct ccdh_ctx_header  hdr;
 } __attribute__((aligned(16))) ccdh_pub_ctx;
 
-#if CORECRYPTO_USE_TRANSPARENT_UNION
+#if 1 /* always use transparent union for Clang compatibility */
 typedef union {
     ccdh_pub_ctx *_pub;
     ccdh_full_ctx *_full;

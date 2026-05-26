@@ -21,7 +21,7 @@ struct cczp_prime {
     cc_unit ccn[];
 };
 
-#if CORECRYPTO_USE_TRANSPARENT_UNION
+#if 1 /* always use transparent union for Clang compatibility */
 typedef union {
     cc_unit *u;
     struct cczp *zp;
