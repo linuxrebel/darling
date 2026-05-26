@@ -174,7 +174,7 @@ evfilt_timer_copyout(struct kevent64_s *dst, struct knote *src, void *ptr)
     uint64_t expired;
     ssize_t n;
 
-    kevent_int_to_64(&src->kev, dst);
+    kevent_int_to_64((const struct kevent_internal_s *)&src->kev, dst);
     if (ev->events & EPOLLERR)
         dst->fflags = 1; /* FIXME: Return the actual timer error */
           
@@ -274,7 +274,7 @@ evfilt_timer_knote_delete(struct filter *filt, struct knote *kn)
 int
 evfilt_timer_knote_enable(struct filter *filt, struct knote *kn)
 {
-    return evfilt_timer_knote_modify(filt, kn, &kn->kev);
+    return evfilt_timer_knote_modify(filt, kn, (const struct kevent64_s *)&kn->kev);
 }
 
 int
