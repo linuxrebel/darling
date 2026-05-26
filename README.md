@@ -10,11 +10,6 @@ Please note that most GUI applications will not run at the moment.
 > to build Darling on Fedora 44 with Clang 22. See the
 > [Fedora 44 Build Guide](#building-on-fedora-44--clang-22) section below.
 
-## Download
-
-Packages for some distributions are available for download
-under [releases](https://github.com/darlinghq/darling/releases).
-
 ## Build Instructions
 
 For general build instructions, visit [Darling Docs](https://docs.darlinghq.org/build-instructions.html).
