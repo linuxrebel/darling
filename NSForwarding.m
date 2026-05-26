@@ -137,7 +137,7 @@ id ___forwarding___(struct objc_sendv_margs *args, void *returnStorage)
 }
 
 void __block_forwarding__(void* frame) {
-    id block = *(id**)frame;
+    id block = *(id *)frame;
     Class class = object_getClass(block);
     const char *className = class_getName(class);
 

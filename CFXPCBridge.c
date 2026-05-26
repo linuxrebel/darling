@@ -43,7 +43,7 @@ CFTypeRef _CFXPCCreateCFObjectFromXPCObject(xpc_object_t xo) {
 			return true;
 		});
 
-		CFDictionaryRef dict = CFDictionaryCreate(NULL, keys, values, count, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+		CFDictionaryRef dict = CFDictionaryCreate(NULL, (const void **)keys, (const void **)values, count, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
 
 		for (size_t i = 0; i < count; ++i) {
 			CFRelease(keys[i]);

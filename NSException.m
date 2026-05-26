@@ -102,7 +102,7 @@ NSString *const NSFileHandleOperationException = @"NSFileHandleOperationExceptio
     CFStringRef reason = CFStringCreateWithFormatAndArguments(kCFAllocatorDefault, NULL, (CFStringRef) format, args);
     va_end(args);
     NSException *exc = [self exceptionWithName: name
-                                        reason: reason
+                                        reason: (NSString *)reason
                                       userInfo: nil];
     [exc raise];
     CFRelease(reason);
@@ -114,7 +114,7 @@ NSString *const NSFileHandleOperationException = @"NSFileHandleOperationExceptio
 {
     CFStringRef reason = CFStringCreateWithFormatAndArguments(kCFAllocatorDefault, NULL, (CFStringRef) format, args);
     NSException *exc = [self exceptionWithName: name
-                                        reason: reason
+                                        reason: (NSString *)reason
                                       userInfo: nil];
     [exc raise];
     CFRelease(reason);
