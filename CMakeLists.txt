@@ -3,12 +3,13 @@ project(CommonCrypto)
 add_compile_options(
 	-nostdinc
 	-Wno-unused-command-line-argument
+	-Wno-incompatible-pointer-types
+	-Wno-error=incompatible-pointer-types
 	-Wl,-exported_symbols_list,${CMAKE_CURRENT_SOURCE_DIR}/exports.exp-in
 )
 
 add_definitions(
 	-DNDEBUG
-	-DCORECRYPTO_DONOT_USE_TRANSPARENT_UNION
 )
 
 include_directories(
