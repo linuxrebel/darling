@@ -32,7 +32,7 @@
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-    NSLog(@"Stub called: %@ in %@", NSStringFromSelector([anInvocation selector]), [self class]);
+    NSLog(@"Stub called: %@ in %@", NSStringFromSelector((SEL)[anInvocation selector]), [self class]);
 }
 
 @end
@@ -47,7 +47,7 @@
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-    NSLog(@"Stub called: %@ in %@", NSStringFromSelector([anInvocation selector]), [self class]);
+    NSLog(@"Stub called: %@ in %@", NSStringFromSelector((SEL)[anInvocation selector]), [self class]);
 }
 
 @end
